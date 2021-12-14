@@ -272,3 +272,11 @@ let lunch:string[]=["Sandwich","Soup","Bread"];
 let todaysMenu:string[][]=[["Cereal","Toast"],dinner];
 let weeklyMenu:string[][][]=[todaysMenu,[lunch]]
 
+
+
+console.log("---CUSTOM TYPES---")
+
+
+//Custom Types enable type checking that is tailores to your exact purposes: tuples
+
+
