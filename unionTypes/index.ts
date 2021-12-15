@@ -179,3 +179,118 @@ const downloadStatus=(status: Status)=>{
 }
 
 downloadStatus("complete");//Your download is complete!
+
+console.log("---Type guards---")
+//type guard => to narrow a type with a if-conditional statement, that checks uf a var us a specific type
+// tipeof => check strings,numbers,booleans, symbols
+
+const formatDate=(date: string | number)=>{
+
+    if(typeof date ==="string"){
+        //body function
+    }
+}
+
+console.log("---Type Narrowing: IN with Type Guards---")
+
+// The "In-Operator" check if a property exits on a object itself or anywhere whitin its prototype chain
+
+
+type Tennis= {
+    serve:()=>void;
+
+}
+ 
+type Soccer= {
+    kick:()=>void;
+}
+
+const play=(sport: Tennis | Soccer)=>{
+    if("serve" in sport){
+        return sport.serve();
+    }
+    if("kick" in sport){
+        return sport.kick();
+    }
+}
+
+console.log("---------------------------")
+
+type Cat = {
+    name:string;
+    run: ()=>string;
+}
+type Fish = {
+    name:string;
+    swim: ()=>string;
+}
+
+const siameseCat={ 
+    name:"Proxie",
+    run: ()=> "fiuuuuuuuuu"
+}
+const bettaFish= {
+    name:"Neptune",
+    swim: ()=> "gluppppppp"
+}
+
+const move=(pet: Cat | Fish)=>{
+    if("run" in pet){
+        return pet.run()
+    }
+    if("swim" in pet){
+        return pet.swim()
+    }
+    
+}
+
+console.log(move(siameseCat));//fiuuuuuuuuu
+console.log(move(bettaFish));//gluppppppp
+    
+
+console.log("---Narrowing with if /else---")
+
+const formatPadding=(padding: string | number)=>{
+    if(typeof padding === "string"){
+        return padding.toLowerCase();
+    }else{
+        return `${padding}px`
+    }
+}
+console.log(formatPadding(5));//5px
+
+console.log("-------------------------------")
+
+type Pasta = {
+    menuName: string;
+    boil: ()=> string;
+}
+
+type Meat = {
+    menuName: string;
+    panFry: ()=> string;
+}
+
+const fettuccine = {
+    menuName: "Fettuccine",
+    boil: ()=> "Water to 212 degrees"
+}
+
+const steak = {
+    menuName: "Steak",
+    panFry: ()=> "Oil to 350 degrees"
+}
+
+const prepareFood=(food: Pasta | Meat)=>{
+    if("boil" in food){
+        return food.boil();
+    }else{
+        return food.panFry();
+    }
+
+}
+console.log(prepareFood(fettuccine));//Water to 212 degrees
+console.log(prepareFood(steak));//Oil to 350 degrees
+
+console.log("---Narrowing after a type guard---")
+

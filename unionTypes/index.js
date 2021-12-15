@@ -107,4 +107,69 @@ const downloadStatus = (status) => {
         console.log(`Your download is ${status}!`);
     }
 };
-downloadStatus("complete");
+downloadStatus("complete"); //Your download is complete!
+console.log("---Type guards---");
+//type guard => to narrow a type with a if-conditional statement, that checks uf a var us a specific type
+// tipeof => check strings,numbers,booleans, symbols
+const formatDate = (date) => {
+    if (typeof date === "string") {
+        //body function
+    }
+};
+console.log("---Type Narrowing: IN with Type Guards---");
+const play = (sport) => {
+    if ("serve" in sport) {
+        return sport.serve();
+    }
+    if ("kick" in sport) {
+        return sport.kick();
+    }
+};
+console.log("---------------------------");
+const siameseCat = {
+    name: "Proxie",
+    run: () => "fiuuuuuuuuu"
+};
+const bettaFish = {
+    name: "Neptune",
+    swim: () => "gluppppppp"
+};
+const move = (pet) => {
+    if ("run" in pet) {
+        return pet.run();
+    }
+    if ("swim" in pet) {
+        return pet.swim();
+    }
+};
+console.log(move(siameseCat)); //fiuuuuuuuuu
+console.log(move(bettaFish)); //gluppppppp
+console.log("---Narrowing with if /else---");
+const formatPadding = (padding) => {
+    if (typeof padding === "string") {
+        return padding.toLowerCase();
+    }
+    else {
+        return `${padding}px`;
+    }
+};
+console.log(formatPadding(5)); //5px
+console.log("-------------------------------");
+const fettuccine = {
+    menuName: "Fettuccine",
+    boil: () => "Water to 212 degrees"
+};
+const steak = {
+    menuName: "Steak",
+    panFry: () => "Oil to 350 degrees"
+};
+const prepareFood = (food) => {
+    if ("boil" in food) {
+        return food.boil();
+    }
+    else {
+        return food.panFry();
+    }
+};
+console.log(prepareFood(fettuccine));
+console.log(prepareFood(steak));
