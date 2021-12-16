@@ -171,5 +171,6 @@ const prepareFood = (food) => {
         return food.panFry();
     }
 };
-console.log(prepareFood(fettuccine));
-console.log(prepareFood(steak));
+console.log(prepareFood(fettuccine)); //Water to 212 degrees
+console.log(prepareFood(steak)); //Oil to 350 degrees
+console.log("---Narrowing after a type guard---");
